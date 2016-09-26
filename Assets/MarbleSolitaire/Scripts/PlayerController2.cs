@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerController2 : MonoBehaviour {
+public class PlayerController2 : MonoBehaviour
+{
 
     public Marble[] allMarbles;
 
@@ -13,22 +14,26 @@ public class PlayerController2 : MonoBehaviour {
     public Marble targetMarble;
     private int tarNum;
     public bool marbleSelected = false;
+    
+    
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	 
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     public void AddMarble(Marble mar)
     {
-        if(marbleSelected == false)
+        if (marbleSelected == false)
         {
-            if(mar.state == Marble.MarbleState.MARBLE)
+            if (mar.state == Marble.MarbleState.MARBLE)
             {
                 currentMarble = mar;
                 targetMarble = null;
@@ -36,7 +41,7 @@ public class PlayerController2 : MonoBehaviour {
                 int.TryParse(mar.gameObject.name, out curNum);
                 print("current: " + curNum);
             }
-            
+
         }
         else
         {
@@ -49,7 +54,7 @@ public class PlayerController2 : MonoBehaviour {
             PlayCheck();
         }
 
-        
+
     }
 
 
@@ -78,7 +83,7 @@ public class PlayerController2 : MonoBehaviour {
                 }
             }
         }
-        
+
 
         if (tarNum == curNum + 10)
         {
