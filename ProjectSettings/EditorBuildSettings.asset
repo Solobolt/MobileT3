@@ -5,7 +5,17 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+    path: Assets/MainMenu/MainMenu.unity
+  - enabled: 1
     path: Assets/Hopper/Scenes/Hopper.unity
   - enabled: 1
     path: Assets/MarbleSolitaire/Scenes/Marble.unity
+  - enabled: 1
+    path: Assets/Land/Scenes/Lands.unity
+  - enabled: 1
+    path: Assets/JellyBlock/Scenes/JellyBlock.unity
+  - enabled: 1
+    path: Assets/ClockStopper/Scenes/ClockStopper.unity
+  - enabled: 1
+    path: Assets/BlackMaze/Maze.unity
