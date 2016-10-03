@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/ClockStopper/Scenes/ClockStopper.unity
   - enabled: 1
     path: Assets/BlackMaze/Maze.unity
+  - enabled: 1
+    path: Assets/ColourClash/ColourClash.unity

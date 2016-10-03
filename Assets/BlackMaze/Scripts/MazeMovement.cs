@@ -5,6 +5,11 @@ public class MazeMovement : MonoBehaviour
 {
     private float speed = 80f;
     public Rigidbody2D rb;
+    Vector2 tempVel;
+    bool moveUp;
+    bool moveDown;
+    bool moveLeft;
+    bool moveRight;
 
     // Use this for initialization
     void Start()
@@ -15,12 +20,7 @@ public class MazeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
-        rb.velocity = new Vector2(0,0);
-
-        Vector2 tempVel = rb.velocity;
+        //rb.velocity = new Vector2(0,0);
 
         if (Input.GetKey("d"))
         {
@@ -42,9 +42,61 @@ public class MazeMovement : MonoBehaviour
             tempVel.y = speed;
         }
 
-        rb.velocity = tempVel;
+        if(moveUp == true)
+        {
+            tempVel.y = -speed;
+        }
 
+        if(moveDown == true)
+        {
+            tempVel.y = speed;
+        }
+
+        if (moveLeft == true)
+        {
+            tempVel.x = speed;
+        }
+
+        if (moveRight == true)
+        {
+            tempVel.x = -speed;
+        }
+
+        rb.velocity = tempVel;
     }
 
+    public void MoveUp()
+    {
+        StopMoving();
+        moveUp = true;
+    }
+
+    public void MoveDown()
+    {
+        StopMoving();
+        moveDown = true;
+    }
+
+    public void MoveLeft()
+    {
+        StopMoving();
+        moveLeft = true;
+    }
+
+    public void MoveRight()
+    {
+        StopMoving();
+        moveRight = true;
+    }
+
+    public void StopMoving()
+    {
+        moveUp = false;
+        moveDown = false;
+        moveLeft = false;
+        moveRight = false;
+
+        tempVel = new Vector2(0, 0);
+    }
 
 }
