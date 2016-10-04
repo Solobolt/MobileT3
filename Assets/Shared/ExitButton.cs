@@ -16,4 +16,9 @@ public class ExitButton : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
