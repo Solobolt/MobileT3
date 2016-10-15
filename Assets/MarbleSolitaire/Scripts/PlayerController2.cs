@@ -62,7 +62,7 @@ public class PlayerController2 : MonoBehaviour
 
     void CheckMiddle()
     {
-        if (curNum % 9 != 8 && curNum % 9 != 9)
+        if ((curNum + 1) % 9 != 8 && (curNum + 1) % 9 != 0)
         {
             if (tarNum == curNum + 2)
             {
@@ -74,7 +74,7 @@ public class PlayerController2 : MonoBehaviour
             }
         }
 
-        if (curNum % 9 != 1 && curNum % 9 != 2)
+        if ((curNum + 1) % 9 != 1 && (curNum + 1) % 9 != 2)
         {
             if (tarNum == curNum - 2)
             {
