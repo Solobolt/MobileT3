@@ -22,7 +22,7 @@ public class PlayerController2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        CheckAvailableMoves();
     }
 
     // Update is called once per frame
@@ -62,7 +62,7 @@ public class PlayerController2 : MonoBehaviour
 
     void CheckMiddle()
     {
-        if (curNum % 5 != 4 && curNum % 5 != 3)
+        if (curNum % 9 != 8 && curNum % 9 != 9)
         {
             if (tarNum == curNum + 2)
             {
@@ -74,7 +74,7 @@ public class PlayerController2 : MonoBehaviour
             }
         }
 
-        if (curNum % 5 != 1 && curNum % 5 != 0)
+        if (curNum % 9 != 1 && curNum % 9 != 2)
         {
             if (tarNum == curNum - 2)
             {
@@ -87,18 +87,18 @@ public class PlayerController2 : MonoBehaviour
         }
 
 
-        if (tarNum == curNum + 10)
+        if (tarNum == curNum + 18)
         {
-            midNum = (curNum + 5);
+            midNum = (curNum + 9);
             if (allMarbles[midNum].state == Marble.MarbleState.JELLY)
             {
                 SetMarbles();
             }
         }
 
-        if (tarNum == curNum - 10)
+        if (tarNum == curNum - 18)
         {
-            midNum = (curNum - 5);
+            midNum = (curNum - 9);
             if (allMarbles[midNum].state == Marble.MarbleState.JELLY)
             {
                 SetMarbles();
@@ -138,7 +138,7 @@ public class PlayerController2 : MonoBehaviour
             if (marbleC.state == Marble.MarbleState.JELLY)
             {
                 //if they can move Right there is move == true
-                if((marbleCounter+1) % 5 != 4 && (marbleCounter + 1) % 5 != 0)
+                if((marbleCounter+1) % 9 != 8 && (marbleCounter + 1) % 9 != 0)
                 {
                     if (marbleCounter + 2 < allMarbles.Length)
                     {
@@ -149,7 +149,7 @@ public class PlayerController2 : MonoBehaviour
                     }
                 }
                 //if they can move Left there is move == true
-                if((marbleCounter + 1) % 5 != 1 && (marbleCounter + 1) % 5 != 2)
+                if((marbleCounter + 1) % 9 != 1 && (marbleCounter + 1) % 9 != 2)
                 {
                     if (marbleCounter - 2 > 0)
                     {
@@ -161,18 +161,18 @@ public class PlayerController2 : MonoBehaviour
                 }
 
                 //if they can move up there is move == true
-                if (marbleCounter + 10 < allMarbles.Length)
+                if (marbleCounter + 18 < allMarbles.Length)
                 {
-                    if (allMarbles[marbleCounter + 5].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter + 10].state == Marble.MarbleState.CLEAR)
+                    if (allMarbles[marbleCounter + 9].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter + 18].state == Marble.MarbleState.CLEAR)
                     {
                         thereIsAMove = true;
                     }
                 }
 
                 //if they can move down there is move == true
-                if(marbleCounter - 10 > 0)
+                if(marbleCounter - 18 > 0)
                 {
-                    if (allMarbles[marbleCounter - 5].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter - 10].state == Marble.MarbleState.CLEAR)
+                    if (allMarbles[marbleCounter - 9].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter - 18].state == Marble.MarbleState.CLEAR)
                     {
                         thereIsAMove = true;
                     }
