@@ -5,6 +5,8 @@ using System.Collections;
 public class PlayerController2 : MonoBehaviour
 {
 
+    public Text gameOverText;
+
     public Marble[] allMarbles;
 
     public Marble currentMarble;
@@ -26,7 +28,7 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckAvailableMoves();
+        
     }
 
     public void AddMarble(Marble mar)
@@ -114,6 +116,8 @@ public class PlayerController2 : MonoBehaviour
 
         allMarbles[tarNum].state = Marble.MarbleState.JELLY;
         allMarbles[tarNum].changeColors();
+
+        CheckAvailableMoves();
     }
 
     void PlayCheck()
@@ -180,6 +184,7 @@ public class PlayerController2 : MonoBehaviour
         if (thereIsAMove == false)
         {
             print("GAMEOVER");
+            gameOverText.text = "GAME OVER";
         }
     }
 }
