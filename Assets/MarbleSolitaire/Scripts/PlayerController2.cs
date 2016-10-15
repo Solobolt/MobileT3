@@ -33,7 +33,7 @@ public class PlayerController2 : MonoBehaviour
     {
         if (marbleSelected == false)
         {
-            if (mar.state == Marble.MarbleState.MARBLE)
+            if (mar.state == Marble.MarbleState.JELLY)
             {
                 currentMarble = mar;
                 targetMarble = null;
@@ -65,7 +65,7 @@ public class PlayerController2 : MonoBehaviour
             if (tarNum == curNum + 2)
             {
                 midNum = (curNum + 1);
-                if (allMarbles[midNum].state == Marble.MarbleState.MARBLE)
+                if (allMarbles[midNum].state == Marble.MarbleState.JELLY)
                 {
                     SetMarbles();
                 }
@@ -77,7 +77,7 @@ public class PlayerController2 : MonoBehaviour
             if (tarNum == curNum - 2)
             {
                 midNum = (curNum - 1);
-                if (allMarbles[midNum].state == Marble.MarbleState.MARBLE)
+                if (allMarbles[midNum].state == Marble.MarbleState.JELLY)
                 {
                     SetMarbles();
                 }
@@ -88,7 +88,7 @@ public class PlayerController2 : MonoBehaviour
         if (tarNum == curNum + 10)
         {
             midNum = (curNum + 5);
-            if (allMarbles[midNum].state == Marble.MarbleState.MARBLE)
+            if (allMarbles[midNum].state == Marble.MarbleState.JELLY)
             {
                 SetMarbles();
             }
@@ -97,7 +97,7 @@ public class PlayerController2 : MonoBehaviour
         if (tarNum == curNum - 10)
         {
             midNum = (curNum - 5);
-            if (allMarbles[midNum].state == Marble.MarbleState.MARBLE)
+            if (allMarbles[midNum].state == Marble.MarbleState.JELLY)
             {
                 SetMarbles();
             }
@@ -112,13 +112,13 @@ public class PlayerController2 : MonoBehaviour
         allMarbles[curNum].state = Marble.MarbleState.CLEAR;
         allMarbles[curNum].changeColors();
 
-        allMarbles[tarNum].state = Marble.MarbleState.MARBLE;
+        allMarbles[tarNum].state = Marble.MarbleState.JELLY;
         allMarbles[tarNum].changeColors();
     }
 
     void PlayCheck()
     {
-        if (allMarbles[curNum].state == Marble.MarbleState.MARBLE && allMarbles[tarNum].state == Marble.MarbleState.CLEAR)
+        if (allMarbles[curNum].state == Marble.MarbleState.JELLY && allMarbles[tarNum].state == Marble.MarbleState.CLEAR)
         {
             CheckMiddle();
         }

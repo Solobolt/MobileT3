@@ -9,7 +9,7 @@ public class Marble : MonoBehaviour {
     {
         CLEAR,
         NONE,
-        MARBLE
+        JELLY
     }
     private Color marbleColor = Color.blue;
     private Color clearColor = Color.white;
@@ -41,7 +41,7 @@ public class Marble : MonoBehaviour {
                 this.gameObject.GetComponent<Image>().color = clearColor;
                 break;
 
-            case MarbleState.MARBLE:
+            case MarbleState.JELLY:
                 this.gameObject.GetComponent<Image>().color = marbleColor;
                 break;
 
