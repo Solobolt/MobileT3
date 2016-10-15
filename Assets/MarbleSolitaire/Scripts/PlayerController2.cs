@@ -26,7 +26,7 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckAvailableMoves();
     }
 
     public void AddMarble(Marble mar)
@@ -123,5 +123,63 @@ public class PlayerController2 : MonoBehaviour
             CheckMiddle();
         }
 
+    }
+
+    void CheckAvailableMoves()
+    {
+        bool thereIsAMove = false;
+        int marbleCounter = 0;
+        foreach (Marble marbleC in allMarbles)
+        {
+            if (marbleC.state == Marble.MarbleState.JELLY)
+            {
+                //if they can move Right there is move == true
+                if((marbleCounter+1) % 5 != 4 && (marbleCounter + 1) % 5 != 0)
+                {
+                    if (marbleCounter + 2 < allMarbles.Length)
+                    {
+                        if (allMarbles[marbleCounter + 1].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter + 2].state == Marble.MarbleState.CLEAR)
+                        {
+                            thereIsAMove = true;
+                        }
+                    }
+                }
+                //if they can move Left there is move == true
+                if((marbleCounter + 1) % 5 != 1 && (marbleCounter + 1) % 5 != 2)
+                {
+                    if (marbleCounter - 2 > 0)
+                    {
+                        if (allMarbles[marbleCounter - 1].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter - 2].state == Marble.MarbleState.CLEAR)
+                        {
+                            thereIsAMove = true;
+                        }
+                    }
+                }
+
+                //if they can move up there is move == true
+                if (marbleCounter + 10 < allMarbles.Length)
+                {
+                    if (allMarbles[marbleCounter + 5].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter + 10].state == Marble.MarbleState.CLEAR)
+                    {
+                        thereIsAMove = true;
+                    }
+                }
+
+                //if they can move down there is move == true
+                if(marbleCounter - 10 > 0)
+                {
+                    if (allMarbles[marbleCounter - 5].state == Marble.MarbleState.JELLY && allMarbles[marbleCounter - 10].state == Marble.MarbleState.CLEAR)
+                    {
+                        thereIsAMove = true;
+                    }
+                }
+            }
+            marbleCounter++;
+        }
+
+        if (thereIsAMove == false)
+        {
+            print("GAMEOVER");
+        }
     }
 }
